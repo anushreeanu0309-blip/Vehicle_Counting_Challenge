@@ -33,10 +33,7 @@ if start and uploaded_file is not None:
                 'inference': {'conf': conf, 'iou': iou},
                 'line': {'position_ratio': line_position},
             }
-           pipeline = VehicleCountingPipeline(
-                config_path=str(BASE_DIR / "config" / "default.yaml"),
-                overrides=overrides
-        )
+           pipeline = VehicleCountingPipeline(overrides=overrides)
             summary = pipeline.process_video(input_path)
 
     st.success('Processing complete')
