@@ -1,7 +1,4 @@
 from __future__ import annotations
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent
 
 import tempfile
 from pathlib import Path
@@ -37,9 +34,9 @@ if start and uploaded_file is not None:
                 'line': {'position_ratio': line_position},
             }
            pipeline = VehicleCountingPipeline(
-    config_path=str(BASE_DIR / "config" / "default.yaml"),
-    overrides=overrides
-)
+                config_path=str(BASE_DIR / "config" / "default.yaml"),
+                overrides=overrides
+        )
             summary = pipeline.process_video(input_path)
 
     st.success('Processing complete')
