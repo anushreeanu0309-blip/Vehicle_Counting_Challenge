@@ -1,0 +1,45 @@
+project:
+  name: AetherEdge Vehicle Counting Challenge
+  output_root: outputs
+  log_root: logs
+
+model:
+  weights: yolo11n.pt
+  device: cpu
+  imgsz: 960
+  tracker: config/bytetrack.yaml
+
+inference:
+  conf: 0.30
+  iou: 0.45
+  car_class_ids: [2]
+  max_frame_stride: 1
+
+line:
+  mode: ratio
+  position_ratio: 0.55
+  thickness: 3
+  color_bgr: [0, 255, 255]
+  p1: null
+  p2: null
+  count_direction: top_to_bottom
+
+alerts:
+  enable_speed_alert: true
+  speed_threshold_kmh: 35.0
+  count_milestones: [5, 10, 25, 50, 100]
+
+speed:
+  enable: true
+  meters_per_pixel: 0.05
+
+output:
+  save_annotated_video: true
+  save_csv: true
+  save_json: true
+  save_summary: true
+  save_chart: true
+  codec: mp4v
+
+ui:
+  max_preview_rows: 200

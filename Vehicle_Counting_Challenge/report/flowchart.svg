@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1100" viewBox="0 0 1100 1100">
+  <style>
+    .title { font: 700 30px Arial; fill: #0f172a; }
+    .proc { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 18; }
+    .dec { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; }
+    .txt { font: 600 18px Arial; fill: #111827; }
+    .small { font: 15px Arial; fill: #334155; }
+    .arrow { stroke: #334155; stroke-width: 3; marker-end: url(#m); fill: none; }
+  </style>
+  <defs>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#334155"/>
+    </marker>
+  </defs>
+  <text x="550" y="50" text-anchor="middle" class="title">Vehicle Counting Flowchart</text>
+  <rect x="380" y="90" width="340" height="80" class="proc"/>
+  <text x="550" y="140" text-anchor="middle" class="txt">Start / Load Configuration</text>
+
+  <rect x="380" y="220" width="340" height="80" class="proc"/>
+  <text x="550" y="270" text-anchor="middle" class="txt">Open Video and Prepare Writers</text>
+
+  <rect x="380" y="350" width="340" height="80" class="proc"/>
+  <text x="550" y="400" text-anchor="middle" class="txt">Read Next Frame</text>
+
+  <polygon points="550,480 710,560 550,640 390,560" class="dec"/>
+  <text x="550" y="555" text-anchor="middle" class="txt">Frame Available?</text>
+
+  <rect x="380" y="690" width="340" height="80" class="proc"/>
+  <text x="550" y="740" text-anchor="middle" class="txt">Detect Cars + Track IDs</text>
+
+  <rect x="380" y="820" width="340" height="80" class="proc"/>
+  <text x="550" y="870" text-anchor="middle" class="txt">Check Line Crossing Rules</text>
+
+  <polygon points="550,950 710,1030 550,1110 390,1030" class="dec"/>
+  <text x="550" y="1025" text-anchor="middle" class="txt">Crossed & Not Counted?</text>
+
+  <path d="M550 170 V220" class="arrow"/>
+  <path d="M550 300 V350" class="arrow"/>
+  <path d="M550 430 V480" class="arrow"/>
+  <path d="M550 640 V690" class="arrow"/>
+  <path d="M550 770 V820" class="arrow"/>
+  <path d="M550 900 V950" class="arrow"/>
+
+  <rect x="760" y="995" width="250" height="70" class="proc"/>
+  <text x="885" y="1038" text-anchor="middle" class="txt">Increment Count + Alert</text>
+
+  <rect x="70" y="995" width="250" height="70" class="proc"/>
+  <text x="195" y="1038" text-anchor="middle" class="txt">Skip Count</text>
+
+  <rect x="380" y="1180" width="340" height="80" class="proc" transform="translate(0,-160)"/>
+  <text x="550" y="1068" text-anchor="middle" class="txt">Annotate + Log + Write Frame</text>
+
+  <rect x="380" y="1180" width="340" height="80" class="proc"/>
+  <text x="550" y="1230" text-anchor="middle" class="txt">Finalize Artifacts and Summary</text>
+
+  <path d="M710 1030 H760" class="arrow"/>
+  <path d="M390 1030 H320" class="arrow"/>
+  <path d="M885 995 V920 H720" class="arrow"/>
+  <path d="M195 995 V920 H380" class="arrow"/>
+  <path d="M550 1060 V1100" class="arrow"/>
+  <path d="M550 560 H850 V1230 H720" class="arrow"/>
+  <text x="860" y="600" class="small">No → finish</text>
+</svg>
