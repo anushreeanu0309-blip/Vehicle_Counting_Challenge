@@ -17,7 +17,13 @@ from utils.video import create_video_writer, open_video
 
 
 class VehicleCountingPipeline:
-    def __init__(self, config_path: str = 'config/default.yaml', overrides: dict[str, Any] | None = None):
+    from pathlib import Path
+
+def __init__(self, config_path: str | None = None, overrides: dict[str, Any] | None = None):
+    if config_path is None:
+        config_path = Path(__file__).resolve().parent.parent / "config" / "default.yaml"
+
+    self.cfg = load_config(str(config_path), overrides=overrides)
         self.cfg = load_config(config_path, overrides=overrides)
         self.logger = get_logger('vehicle_counter.pipeline', self.cfg['project']['log_root'])
         self.detector = YoloCarTracker(
